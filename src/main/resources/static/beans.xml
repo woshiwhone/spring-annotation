@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--包扫描，只要标注了@Controller，@Service...注解的都会被扫描进去-->
+    <!--<context: component-scan base-package="com.sse.annotation"/>-->
+    <bean id="person" class="com.sse.annotation.bean.Person" scope="prototype">
+        <property name="age" value="30"/>
+        <property name="name" value="宋江"/>
+        <property name="nickname" value="及时雨"/>
+    </bean>
+
+
+
+</beans>
