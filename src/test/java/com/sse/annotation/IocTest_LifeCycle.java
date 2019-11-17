@@ -1,19 +1,57 @@
 package com.sse.annotation;
 
+import com.sse.annotation.bean.Cat;
 import com.sse.annotation.bean.Person;
+import com.sse.annotation.config.AnnoConfig;
 import com.sse.annotation.config.MainConfigOfLifeCycleUseCar;
 import com.sse.annotation.config.MainConfigOfProperty;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 //@ComponentScan("com.sse.annotation.bean")
-public class IocTest_LifeCycle {
+public class IocTest_LifeCycle extends Object {
 
+    @Test
+    public void test05(){
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AnnoConfig.class);
+        System.out.println("容器创建完成...");
+
+        Cat cat1 = (Cat)context.getBean("mycat");
+        System.out.println(cat1);
+    }
+
+    @Test
+    public void test06(){
+        // 以前的方法，从类路径下加载beans.xml文件
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("static/Cat.xml");
+        Cat cat2 = (Cat) context.getBean("cat2");
+        System.out.println(cat2);
+    }
+
+
+    @Test
+    public void test04() {
+        Date timestamp = new Date();
+        System.out.println(timestamp);
+        System.out.println(timestamp.getTime());
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        System.out.println(format.format(timestamp.getTime()));
+
+        System.out.println("----------------");
+
+        System.out.println(System.currentTimeMillis());
+        System.out.println(new Date().getTime());
+    }
 
     @Test
     public void test01() {
@@ -40,7 +78,17 @@ public class IocTest_LifeCycle {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MainConfigOfProperty.class);
 
         printBeans(context);
-        Person person = (Person) context.getBean("person");
+        Person person = (Person) context.getBean("person03");
+        System.out.println(person);
+
+    }
+
+    @Test
+    public void test03() {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AnnoConfig.class);
+
+        printBeans(context);
+        Person person = (Person) context.getBean("person02");
         System.out.println(person);
 
     }

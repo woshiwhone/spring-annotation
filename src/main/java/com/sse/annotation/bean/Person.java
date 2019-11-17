@@ -13,7 +13,7 @@ public class Person {
      * 2.可以写SpEL表达式，#{}
      * 3.可以配置文件当中读取，${},使用@PropertySource加载外部配置文件，然后@Value注解才能找到哦啊
      */
-//    @Value("${person.age}")
+//    @Value("(java.lang.Integer).parseInt('${person.age}'})")
     private Integer age;
 
 //    @Value("${person.name}")

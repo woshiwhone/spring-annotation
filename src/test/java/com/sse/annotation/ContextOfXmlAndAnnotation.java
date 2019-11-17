@@ -26,4 +26,5 @@ public class ContextOfXmlAndAnnotation {
             System.out.println(name);
         }
     }
+
 }

@@ -8,6 +8,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 /**
+ * @name: MainConfigOfLifeCycleUseCar
+ * @author: xiangyf
+ * @create: 2019-04-16 13:58
  * bean的生命周期：
  * bean创建----初始化-----销毁的过程
  * 容器可以自动管理bean的生命周期；
