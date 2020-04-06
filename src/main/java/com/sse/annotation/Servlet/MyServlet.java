@@ -11,7 +11,8 @@ public class MyServlet extends HttpServlet {
     //加入到容器中才能生效
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doPost(req, resp);
+//        doPost(req, resp);
+        resp.getWriter().print("Hello MyServlet, doGet");
     }
 
     @Override

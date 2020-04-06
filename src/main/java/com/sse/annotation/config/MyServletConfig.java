@@ -7,6 +7,7 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import javax.servlet.Servlet;
 import java.util.Arrays;
@@ -17,6 +18,7 @@ import java.util.Arrays;
  * @create: 2019-11-17 17:20
  * @description:
  */
+@Configuration
 public class MyServletConfig {
 
     @Bean
@@ -37,7 +39,7 @@ public class MyServletConfig {
 
     @Bean
     public ServletListenerRegistrationBean myLister(){
-        ServletListenerRegistrationBean<MyListener> myLister = new ServletListenerRegistrationBean<>();
+        ServletListenerRegistrationBean<MyListener> myLister = new ServletListenerRegistrationBean<>(new MyListener());
         return myLister;
     }
 
