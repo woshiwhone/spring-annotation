@@ -1,19 +1,25 @@
 package com.sse.annotation.bean;
 
 import org.springframework.beans.factory.FactoryBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author yf.xiang
  * @date 2020-04-12 15:56
  */
-@ComponentScan(basePackages = "com.sse.annotation.config.MainConfigOfLifeCycleUseCar")
 public class ColorFactoryBean implements FactoryBean<Color> {
+
+    @Autowired
+//    @Qualifier(value = "myColor")
+    private Color color;
     //返回一个Color对象，这个对象会添加到容器中
     @Override
     public Color getObject() throws Exception {
         // TODO Auto-generated method stub
         System.out.println("ColorFactoryBean...getObject...");
+//        return color;
         return new Color();
     }
 

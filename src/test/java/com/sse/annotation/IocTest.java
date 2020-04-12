@@ -41,6 +41,10 @@ public class IocTest {
         Color color2 = (Color) context.getBean("colorFactoryBean");
         System.out.println("colorFactoryBean => color1:" + color1);
         System.out.println("color1 == color2 :" + (color1 == color2));
+        System.out.println("colorFactoryBean => color1 => getCar:" + color1.getCar());
+        System.out.println("myCar:" + context.getBean("myCar"));
+
+
         System.out.println("com.sse.annotation.bean.Color => color对象:" + context.getBean("com.sse.annotation.bean.Color"));
         System.out.println("colorFactoryBean本身:" + context.getBean("&colorFactoryBean"));
 

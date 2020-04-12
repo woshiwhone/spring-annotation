@@ -81,4 +81,9 @@ public class MainConfig2 {
     public Car myCar() {
         return new Car("劳斯莱斯");
     }
+
+//    @Bean
+//    public Color myColor(){
+//        return new Color();
+//    }
 }
