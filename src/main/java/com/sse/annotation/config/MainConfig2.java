@@ -8,9 +8,9 @@ import org.springframework.context.annotation.*;
  * @date 2020-04-12 15:44
  */
 //类中组件统一设置。满足当前条件，这个类中配置的所有bean注册才能生效；
-@Conditional({WindowsCondition.class})
+//@Conditional({WindowsCondition.class})
 @Configuration
-@Import({Color.class, Red.class, MyImportSelector.class, MyImportBeanDefinitionRegistrar.class})
+@Import({Color.class, Red.class,/*Car.class,*/ MyImportSelector.class, MyImportBeanDefinitionRegistrar.class})
 //@Import导入组件，id默认是组件的全类名
 public class MainConfig2 {
     //默认是单实例的
@@ -75,5 +75,10 @@ public class MainConfig2 {
     @Bean
     public ColorFactoryBean colorFactoryBean(){
         return new ColorFactoryBean();
+    }
+
+    @Bean(initMethod = "init", destroyMethod = "destroy")
+    public Car myCar() {
+        return new Car("劳斯莱斯");
     }
 }

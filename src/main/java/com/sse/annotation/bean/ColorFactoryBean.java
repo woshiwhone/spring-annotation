@@ -1,11 +1,13 @@
 package com.sse.annotation.bean;
 
 import org.springframework.beans.factory.FactoryBean;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author yf.xiang
  * @date 2020-04-12 15:56
  */
+@ComponentScan(basePackages = "com.sse.annotation.config.MainConfigOfLifeCycleUseCar")
 public class ColorFactoryBean implements FactoryBean<Color> {
     //返回一个Color对象，这个对象会添加到容器中
     @Override
@@ -27,6 +29,6 @@ public class ColorFactoryBean implements FactoryBean<Color> {
     @Override
     public boolean isSingleton() {
         // TODO Auto-generated method stub
-        return false;
+        return true;
     }
 }

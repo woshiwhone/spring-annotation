@@ -33,8 +33,8 @@ import org.springframework.context.annotation.Scope;
 public class MainConfigOfLifeCycleUseCar {
 
     //    @Scope("prototype")//多实例的时候不会自动调用初始化方法，需要在你获取的时候才会调用
-    @Bean(name = "car01", initMethod = "init", destroyMethod = "destroy")
-    public Car myCar() {
-        return new Car();
-    }
+//    @Bean(initMethod = "init", destroyMethod = "destroy")
+//    public Car myCar() {
+//        return new Car("劳斯莱斯");
+//    }
 }
